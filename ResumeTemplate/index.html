@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume Template</title>
+    <link rel="stylesheet" href="/ResumeTemplate/index.css" />
+  </head>
+  <body>
+    <div>
+      <form action="#" >
+        <h3>Resume</h3>
+        <!-- Header -->
+        <section>
+          <h4>Header</h4>
+          <div class="form-grid">
+            <div>
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="John"
+                required
+              />
+            </div>
+            <div>
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Doe"
+                required
+              />
+            </div>
+            <div>
+              <label for="role">Role</label>
+              <input
+                type="text"
+                id="role"
+                name="role"
+                placeholder="Software Engineer"
+                required
+              />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+1234567890"
+                required
+              />
+            </div>
+            <div>
+              <label for="linkedin">LinkedIn</label>
+              <input
+                type="url"
+                id="linkedin"
+                name="linkedin"
+                placeholder="https://linkedin.com/in/johndoe"
+                
+              />
+            </div>
+            <div>
+              <label for="location">Location</label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="City, Country"
+                required
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Summary -->
+        <section>
+          <h4>Professional Summary</h4>
+          <textarea
+            id="summary"
+            name="summary"
+            placeholder="Brief summary about yourself..."
+            rows="4"
+            cols="50"
+          ></textarea>
+        </section>
+
+        <!-- Certifications -->
+        <section>
+          <h4>Certifications</h4>
+          <section id="certifications-container">
+            <div class="form-grid">
+              <div>
+                <label for="cert_name">Certification Name</label>
+                <input
+                  type="text"
+                  id="cert_name"
+                  name="cert_name"
+                  placeholder="AWS Certified Developer"
+                  
+                />
+              </div>
+              <div>
+                <label for="inst_name">Institution Name</label>
+                <input
+                  type="text"
+                  id="inst_name"
+                  name="inst_name"
+                  placeholder="Amazon"
+                  
+                />
+              </div>
+              <div style="grid-column: 1 / -1">
+                <label for="key_point">Details</label>
+                <textarea
+                  id="key_point"
+                  name="key_point"
+                  placeholder="Explain what you learned or achieved..."
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+          </section>
+          <button type="button" id="add-certification">
+            Add Certification
+          </button>
+        </section>
+
+        <!-- Skills -->
+        <section>
+          <h4>Skills</h4>
+          <div id="skills"></div>
+          
+          <input
+            type="text"
+            name="skill"
+            placeholder="e.g., JavaScript, Python"
+            id="skill"
+            
+          />
+          <button type="button" id="add-skill">Add Skill</button>
+        </section>
+
+        <!-- Projects -->
+        <section>
+          <h4>Projects</h4>
+          <section id="project">
+            <div class="form-grid">
+              <div>
+                <label for="project_name">Project Name</label>
+                <input
+                  type="text"
+                  id="project_name"
+                  name="project_name"
+                  placeholder="E-commerce Website"
+                  
+                />
+              </div>
+              <div>
+                <label for="project_role">Your Role</label>
+                <input
+                  type="text"
+                  id="project_role"
+                  name="project_role"
+                  placeholder="Frontend Developer"
+                  
+                />
+              </div>
+              <div>
+                <label for="project_tech">Technologies Used</label>
+                <input
+                  type="text"
+                  id="project_tech"
+                  name="project_tech"
+                  placeholder="React, Node.js, MongoDB"
+                  
+                />
+              </div>
+              <div style="grid-column: 1 / -1">
+                <label for="project_desc">Description</label>
+                <textarea
+                  id="project_desc"
+                  name="project_desc"
+                  placeholder="Describe the project..."
+                  rows="4"
+                ></textarea>
+              </div>
+            </div>
+          </section>
+          <button type="button" id="addProject">Add Project</button>
+        </section>
+
+        <!-- Experience -->
+        <section>
+          <h4>Experience</h4>
+          <section id="experience">
+            <div class="form-grid">
+              <div>
+                <label for="job_title">Job Title</label>
+                <input
+                  type="text"
+                  id="job_title"
+                  name="job_title"
+                  placeholder="Software Engineer"
+                  
+                />
+              </div>
+              <div>
+                <label for="company_name">Company Name</label>
+                <input
+                  type="text"
+                  id="company_name"
+                  name="company_name"
+                  placeholder="ABC Tech Pvt Ltd"
+                  
+                />
+              </div>
+              <div>
+                <label for="duration">Duration</label>
+                <input
+                  type="text"
+                  id="duration"
+                  name="duration"
+                  placeholder="Jan 2022 - Present"
+                  
+                />
+              </div>
+              <div style="grid-column: 1 / -1">
+                <label for="responsibilities">Responsibilities</label>
+                <textarea
+                  id="responsibilities"
+                  name="responsibilities"
+                  placeholder="Mention your key responsibilities and achievements..."
+                  rows="4"
+                ></textarea>
+              </div>
+            </div>
+          </section>
+          <button type="button" id="add-experience">Add Experience</button>
+        </section>
+
+        <!-- Education -->
+        <section>
+          <h4>Education</h4>
+          <section id="education">
+            <div class="form-grid">
+              <div>
+                <label for="education_type">Education Level</label>
+                <select name="education_type" id="education_type">
+                  <option value="">Select Education</option>
+                  <option value="ssc">SSC</option>
+                  <option value="inter">Intermediate</option>
+                  <option value="graduation">Graduation</option>
+                  <option value="post_graduation">Post-Graduation</option>
+                </select>
+              </div>
+              <div>
+                <label for="education_group">Group / Stream</label>
+                <select name="education_group" id="education_group">
+                  <option value="">Select Group</option>
+                  <optgroup label="Intermediate">
+                    <option value="mpc">MPC</option>
+                    <option value="bipc">BiPC</option>
+                    <option value="cec">CEC</option>
+                    <option value="mec">MEC</option>
+                    <option value="hec">HEC</option>
+                  </optgroup>
+                  <optgroup label="Graduation">
+                    <option value="bsc_cs">B.Sc Computer Science</option>
+                    <option value="bcom">B.Com</option>
+                    <option value="ba">B.A</option>
+                    <option value="btech_cse">B.Tech CSE</option>
+                    <option value="btech_ece">B.Tech ECE</option>
+                    <option value="bba">BBA</option>
+                  </optgroup>
+                  <optgroup label="Post-Graduation">
+                    <option value="msc_cs">M.Sc Computer Science</option>
+                    <option value="mcom">M.Com</option>
+                    <option value="ma">M.A</option>
+                    <option value="mtech_cse">M.Tech CSE</option>
+                    <option value="mba">MBA</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div>
+                <label for="institute">Institute</label>
+                <input
+                  type="text"
+                  id="institute"
+                  name="institute"
+                  placeholder="University/School Name"
+                  
+                />
+              </div>
+              <div>
+                <label for="edu_year">Year of Passing</label>
+                <input
+                  type="number"
+                  id="edu_year"
+                  name="edu_year"
+                  placeholder="2022"
+                />
+              </div>
+            </div>
+          </section>
+          <button type="button" id="add-education">Add Education</button>
+        </section>
+
+        <!-- Submit -->
+        <div>
+          <button type="submit" id="generate">Generate Resume</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="/ResumeTemplate/index.js"></script>
+  </body>
+</html>
