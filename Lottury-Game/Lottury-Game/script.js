@@ -27,11 +27,17 @@ giftBoxes.forEach((box, index) => {
 });
 
 giftBoxes.forEach((box) => {
+  let redeeminfo =  document.createElement("img");
+  box.appendChild(redeeminfo);
   lucklyBtn.addEventListener("click", () => {
     maskElement(box, "mask", "img", "add");
     maskElement(box, "mask", "p", "add");
     popup.style.display = "none";
     box.removeEventListener("mouseenter", handleMouseEnter);
+    redeeminfo.src = "./images/Info/redeem.jpg";
+    if (box.getAttribute("data-uid") === "null") {
+      redeeminfo.src = "./images/Info/redeemed.webp";
+    }
   });
 });
 
@@ -74,15 +80,50 @@ function cardPopUp(Element, eventTarget = null) {
 }
 
 lucklyBtn.addEventListener("click", () => {
+  debugger;
   selectWinner();
 });
 
-function selectWinner() {
+async function selectWinner() {
+  debugger;
   let value = Math.round(Math.random() * 50);
   const uidKey = `lottery_uid_${value}`;
   console.log(`Value : ${value}, uidKey : ${uidKey}`);
   let storedUid = localStorage.getItem(uidKey);
+  console.log("StoredUid : ", storedUid);
+  if (storedUid === "null") {
+    debugger;
+    await highlightRandomGiftboxes(10, 400);
+    redeemedGiftBox();
+    return;
+  }
   pickLottoryWinnerAsync(uidKey, storedUid);
+}
+async function redeemedGiftBox() {
+  debugger;
+  popupImg.src = "./images/Info/redeemed.webp";
+  popupImg.alt = "Redeemed Gift Box";
+  popupImg.style.height = "80%";
+  let numOfGits = 0;
+  giftBoxes.forEach((box) => {
+    if (box.getAttribute("data-uid") === "null") {
+      numOfGits++;
+    }
+  });
+  if (numOfGits >= 50) {
+    popupText.textContent =
+      "All the gift boxes have been redeemed, Please try again later.";
+  } else if (numOfGits >= 25) {
+    popupText.textContent = "Limited Gifts are available, Please try again.";
+  } else {
+    popupText.textContent =
+      "This gift box has already been redeemed, Please try again.";
+  }
+
+  popup.style.display = "block";
+  await sleep(5000);
+  emptyPopUp();
+  popup.style.display = "none";
 }
 
 function lotteryTicketNum() {
@@ -117,27 +158,36 @@ async function pickLottoryWinnerAsync(uidKey, storedUid) {
   await highlightRandomGiftboxes(10, 400);
 
   const winnerElement = document.querySelector(`[data-uid="${storedUid}"]`);
-
-  if (!winnerElement) return;
-
   maskElement(winnerElement, "mask", "img", "remove");
   maskElement(winnerElement, "mask", "p", "remove");
   cardPopUp(winnerElement);
-  popupImg.src = "";
-  popupImg.alt = "";
-  popupText.textContent = "";
-  popup.style.display = "block";
-
+  emptyPopUp();
   await sleep(5000);
 
   winnerElement.classList.add("hidden");
   popup.style.display = "none";
   winnerElement.setAttribute("data-uid", null);
-  console.log("uidkey : ",uidKey, "Uidkey Value ", localStorage.getItem(uidKey));
+  // console.log(
+  //   "uidkey : ",
+  //   uidKey,
+  //   "Uidkey Value ",
+  //   localStorage.getItem(uidKey)
+  // );
   // Optionally clear localStorage key
   localStorage.setItem(uidKey, null);
-  console.log("uidkey : ",uidKey, "Uidkey Value ", localStorage.getItem(uidKey));
+  // console.log(
+  //   "uidkey : ",
+  //   uidKey,
+  //   "Uidkey Value ",
+  //   localStorage.getItem(uidKey)
+  // );
+}
 
+function emptyPopUp() {
+  popupImg.src = "";
+  popupImg.alt = "";
+  popupText.textContent = "";
+  popup.style.display = "block";
 }
 
 function maskElement(ParentElement, className, childElement, action) {
@@ -148,10 +198,11 @@ function maskElement(ParentElement, className, childElement, action) {
 giftBoxes.forEach((box, index) => {
   const uidKey = `lottery_uid_${index}`;
   let storedUid = localStorage.getItem(uidKey);
-  console.log("UidKey",uidKey,"StoredUid",storedUid);
-  if (storedUid !== null && storedUid === "") {
+  // console.log("UidKey", uidKey, "StoredUid", storedUid);
+  if (localStorage.getItem("isLotturyOver") === "true" && !storedUid) {
     let storedUid = lotteryTicketNum();
     localStorage.setItem(uidKey, storedUid);
+    localStorage.setItem("isLotturyOver", false);
   }
   box.setAttribute("data-uid", storedUid);
 });

@@ -34,6 +34,7 @@ body {
 }
 .giftBox {
   width: calc((100% - 16px * 9) / 10);
+  height: 130px;
   aspect-ratio: 1 / 1;
   border: 1px solid #ccc;
   padding: 15px 8px 0;
@@ -85,7 +86,7 @@ body {
 }
 .round-highlight {
   outline: 3px solid gold;
-  border-radius: 50%;
+  border-radius: 60%;
   transition: outline 0.3s ease;
 }
 .popup-card.hidden {
@@ -104,7 +105,7 @@ body {
   color: #555;
 }
 .lucklyBtn {
-  background: linear-gradient(135deg, #28a745, #a4e100); 
+  background: linear-gradient(135deg, #28a745, #a4e100);
   border: none;
   color: white;
   font-weight: bold;
@@ -120,7 +121,7 @@ body {
 }
 
 .lucklyBtn:hover {
-background: linear-gradient(135deg, #34d058, #d4ff00);
+  background: linear-gradient(135deg, #34d058, #d4ff00);
   box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
   transform: scale(1.05);
 }
