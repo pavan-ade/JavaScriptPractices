@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 20px;
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  color: #000;
+  padding: 0 8px;
+}
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+  margin: 20px 0;
+  color: #fff;
+  border-radius: 8px;
+  background-color: #1e1e2f;
+}
+.git-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  box-shadow: 0 0 10px #ccc;
+  border: 2px solid #ccc;
+  padding: 10px;
+}
+.lotteryNum {
+  font-size: 20px;
+  overflow-wrap: break-word;
+  letter-spacing: 0.3em;
+}
+.giftBox {
+  width: calc((100% - 16px * 9) / 10);
+  aspect-ratio: 1 / 1;
+  border: 1px solid #ccc;
+  padding: 15px 8px 0;
+  box-sizing: border-box;
+  text-align: center;
+
+  border-radius: 8px;
+  box-shadow: 0 0 10px #1e1e2f;
+  background: #1e1e2f;
+  color: #fff;
+  cursor: pointer !important;
+}
+
+/* Show on hover */
+.giftBox:hover::after {
+  display: block;
+}
+.giftBox img {
+  max-width: 100%;
+  max-height: 60%;
+  object-fit: contain;
+}
+.giftBox p,
+.popup-card p {
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: capitalize; /* Capitalize first letter of each word */
+  word-wrap: break-word; /* Wrap long words if needed */
+  white-space: normal;
+}
+.mask {
+  display: none;
+}
+/* Pop up Card */
+.popup-card {
+  position: absolute;
+  width: 520px;
+  height: 530px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 12px;
+  z-index: 9999;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.round-highlight {
+  outline: 3px solid gold;
+  border-radius: 50%;
+  transition: outline 0.3s ease;
+}
+.popup-card.hidden {
+  display: none;
+}
+
+.popup-card img {
+  width: 100%;
+  height: 92%;
+  border-radius: 8px;
+}
+
+.popup-card p {
+  font-size: 30px;
+  margin: 6px 0;
+  color: #555;
+}
+.lucklyBtn {
+  background: linear-gradient(135deg, #28a745, #a4e100); 
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 12px 30px;
+  border-radius: 5px;
+  display: block;
+  margin: 8px auto;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 126, 95, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.lucklyBtn:hover {
+background: linear-gradient(135deg, #34d058, #d4ff00);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+  transform: scale(1.05);
+}
+
+.lucklyBtn:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 8px rgba(255, 126, 95, 0.4);
+}
+
+.lucklyBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 126, 95, 0.7);
+}
